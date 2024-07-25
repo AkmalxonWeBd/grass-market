@@ -80,6 +80,10 @@
     font-size: 25px;
 }
 
+.buttons div{
+    cursor: pointer;
+}
+
 .bag {
     display: flex;
 }
@@ -93,4 +97,38 @@
     display: flex;
     justify-content: center;
     border-radius: 50%;
+}
+/* Xizmatlar uchun dropdown menyu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.dropdown-menu a {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: cornflowerblue;
+}
+
+.menu-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-item:hover .dropdown-menu {
+    display: block;
 }

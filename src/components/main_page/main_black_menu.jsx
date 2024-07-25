@@ -22,13 +22,26 @@ function Main() {
                 <div className="menu">
                     <h1>Mahsulotlar</h1>
                     <h1>To'lov tizimlari</h1>
-                    <h1>Hizmatlar</h1>
+                    <div className="menu-item">
+                        <h1>Xizmatlar</h1>
+                        <div className="dropdown-menu">
+                            <Link to="#">Yetkazib berish hizmati haqida</Link>
+                            <Link to="#">Buyurtma berish haqida</Link>
+                            <Link to="#">To'lov tizimlari haqida</Link>
+                        </div>
+                    </div>
                     <h1>Aloqa</h1>
                 </div>
                 <div className="buttons">
-                    <CiSearch />
-                    <RiStarSLine />
-                    <LuUser />
+                    <div>
+                        <CiSearch />
+                    </div>
+                    <div>
+                        <RiStarSLine />
+                    </div>
+                    <div>
+                        <LuUser />
+                    </div>
                     <div className='bag'>
                         <PiHandbag />
                         {bagCount > 0 && <h1>{bagCount}</h1>}
