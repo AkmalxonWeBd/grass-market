@@ -1,0 +1,96 @@
+/* Import Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+.logo_img {
+    width: 36px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    
+}
+
+.logo_img_grass {
+    color: white;
+    align-items: center;
+    text-decoration: none;
+}
+
+.main_black_menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px;
+    background-color: black;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    color: white;
+}
+.menu h1{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.menu h1:hover{
+    transform: scale(1.1);
+}
+.menu h1::after {
+    content: "";
+    position: absolute;
+    left: 50%; 
+    bottom: 0;
+    transform: translateX(-120%);
+    width: 0%;
+    height: 5px;
+    background-color: blue;
+    border-radius: 10px;
+    display: block;
+    transition: all 0.5s;
+}
+
+.menu h1:hover::after {
+    width: 100%;
+    left: 0; 
+    transform: none;
+}
+.buttons {
+    color: white;
+    display: flex;
+    gap: 10px;
+    font-size: 25px;
+}
+
+.bag {
+    display: flex;
+}
+
+.bag h1 {
+    font-size: 10px;
+    background-color: cornflowerblue;
+    height: 16px;
+    align-items: center;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
