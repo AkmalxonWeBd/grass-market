@@ -1,9 +1,17 @@
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './components/main_page';
+import Katalog from './components/katalog';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Main />} />
+        <Route path="/katalog" element={<Katalog />} />
+      </Routes>
+    </Router>
   );
 }
 
