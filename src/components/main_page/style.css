@@ -21,7 +21,6 @@
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    
 }
 
 .logo_img_grass {
@@ -44,16 +43,20 @@
     display: flex;
     gap: 30px;
     color: white;
+    font-size: 12px;
 }
-.menu h1{
+
+.menu h1 {
     position: relative;
     display: inline-block;
     cursor: pointer;
     transition: all 0.5s;
 }
-.menu h1:hover{
+
+.menu h1:hover {
     transform: scale(1.1);
 }
+
 .menu h1::after {
     content: "";
     position: absolute;
@@ -73,6 +76,50 @@
     left: 0; 
     transform: none;
 }
+
+.menu-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(58, 52, 52);
+    padding: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 200px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 20px 30px 20px black;
+}
+
+.menu-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    border-radius: 10px;
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: cornflowerblue;
+    padding-left: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 1px 10px black;
+}
+
 .buttons {
     color: white;
     display: flex;
@@ -80,7 +127,7 @@
     font-size: 25px;
 }
 
-.buttons div{
+.buttons div {
     cursor: pointer;
 }
 
@@ -97,38 +144,4 @@
     display: flex;
     justify-content: center;
     border-radius: 50%;
-}
-/* Xizmatlar uchun dropdown menyu */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: black;
-    padding: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    width: 200px;
-    border-radius: 5px;
-}
-
-.dropdown-menu a {
-    color: white;
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.dropdown-menu a:hover {
-    background-color: cornflowerblue;
-}
-
-.menu-item {
-    position: relative;
-    cursor: pointer;
-}
-
-.menu-item:hover .dropdown-menu {
-    display: block;
 }
