@@ -1,53 +1,75 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { GrFormPrevious, GrFormNext } from "react-icons/gr";
-import "./style.css";
-import Contents from './contents';
+import React, { useState, useRef } from 'react';
+import Slider from "react-slick";
+import "./Carousel.css";
+import img from "./Rectangle 1650.jpg"
 
-function Main_carusel() {
-    const contentListRef = useRef(null);
-    const [contentList, setContentList] = useState([]);
-    const [index, setIndex] = useState(0);
+const Carousel = () => {
+  const sliderRef = useRef(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-    useEffect(() => {
-        const contentsDiv = contentListRef.current;
-        const divs = contentsDiv ? Array.from(contentsDiv.getElementsByClassName('contents')[0].children) : [];
-        const reactElements = divs.map((div, i) => (
-            <div key={i} className={`carousel-content`} style={{ '--i': i, '--total': divs.length }} dangerouslySetInnerHTML={{ __html: div.outerHTML }} />
-        ));
-        setContentList(reactElements);
-    }, []);
+  const handleBeforeChange = (current, next) => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+      sliderRef.current.slickGoTo(next);
+    }, 1000);
+  };
 
-    const handlePrev = () => {
-        setIndex(prevIndex => (prevIndex === 0 ? contentList.length - 1 : prevIndex - 1));
-    };
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: handleBeforeChange,
+    afterChange: () => setIsAnimating(false),
+  };
 
-    const handleNext = () => {
-        setIndex(prevIndex => (prevIndex === contentList.length - 1 ? 0 : prevIndex + 1));
-    };
-
-    useEffect(() => {
-        const interval = setInterval(handleNext, 3000);
-        return () => clearInterval(interval);
-    }, [contentList]);
-
-    return (
-        <div className="carousel-container">
-            <div className="carousel">
-                <div className="prev" onClick={handlePrev}>
-                    <GrFormPrevious />
-                </div>
-                <div className='carousel-contents' style={{ transform: `rotateY(${-index * (360 / contentList.length)}deg)` }}>
-                    {contentList}
-                </div>
-                <div className="next" onClick={handleNext}>
-                    <GrFormNext />
-                </div>
-            </div>
-            <div ref={contentListRef} style={{ display: 'none' }}>
-                <Contents />
-            </div>
+  return (
+    <div className="carousel-container">
+      <Slider ref={sliderRef} {...settings}>
+        <div className={`carousel-slide ${isAnimating ? 'shrinking' : ''}`}>
+          <img src={img} alt="Carousel Slide" />
         </div>
-    );
+        <div className={`carousel-slide ${isAnimating ? 'shrinking' : ''}`}>
+          <img src={img} alt="Carousel Slide" />
+        </div>
+        <div className={`carousel-slide ${isAnimating ? 'shrinking' : ''}`}>
+          <img src={img} alt="Carousel Slide" />
+        </div>
+        <div className={`carousel-slide ${isAnimating ? 'shrinking' : ''}`}>
+          <img src={img} alt="Carousel Slide" />
+        </div>
+        <div className={`carousel-slide ${isAnimating ? 'shrinking' : ''}`}>
+          <img src={img} alt="Carousel Slide" />
+        </div>
+      </Slider>
+    </div>
+  );
 }
 
-export default Main_carusel;
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", right: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}
+      onClick={onClick}
+    />
+  );
+}
+
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", left: "10px", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}
+      onClick={onClick}
+    />
+  );
+}
+
+export default Carousel;

@@ -16,7 +16,7 @@ function Main() {
                 <Link to="/">
                     <div className="logo">
                         <img className='logo_img' src={logo_img} alt="Logo" />
-                        <h1 className='logo_img_grass'>grass</h1>
+                        <h1 className='logo_img_grass'>Grass-Market</h1>
                     </div>
                 </Link>
                 <div className="menu">

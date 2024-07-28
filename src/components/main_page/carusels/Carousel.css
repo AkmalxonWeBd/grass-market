@@ -1,0 +1,50 @@
+.carousel-container {
+    width: 100%;
+    max-width: 1100px;
+    height: 500px;
+    margin: 0 auto;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    transition: transform 0.2s ease-in-out;
+}
+
+.carousel-slide.shrinking {
+    transform: scale(0.9);
+}
+
+.slick-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.slick-slide.slick-current img {
+    transform: scale(1.05);
+}
+
+.slick-arrow {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 20px;
+    color: white;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #000;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #000000;
+}
