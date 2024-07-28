@@ -1,6 +1,6 @@
 import React from 'react'
 import Main_black_menu from './main_black_menu'
-import Main_carusel from './carusels/main_carusel'
+import Main_carusel from './carusels/main_carusel/main_carusel'
 import "./style.css"
 
 function Main_page() {
@@ -10,7 +10,7 @@ function Main_page() {
         <Main_black_menu />
       </div>
       <div>
-      <Main_carusel />
+        <Main_carusel />
       </div>
     </div>
   )
